@@ -7,10 +7,10 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS restore
 WORKDIR /src
 
 # Copia apenas arquivos de projeto para maximizar cache de restore
-COPY PingApi.slnx ./
+COPY RabayHouseLab.PingApi.slnx ./
 COPY Directory.Build.props ./
-COPY src/PingApi.Api/PingApi.Api.csproj src/PingApi.Api/
-COPY tests/PingApi.Tests/PingApi.Tests.csproj tests/PingApi.Tests/
+COPY src/RabayHouseLab.PingApi.Api/RabayHouseLab.PingApi.Api.csproj src/RabayHouseLab.PingApi.Api/
+COPY tests/RabayHouseLab.PingApi.Tests/RabayHouseLab.PingApi.Tests.csproj tests/RabayHouseLab.PingApi.Tests/
 
 RUN dotnet restore --locked-mode 2> /dev/null || dotnet restore
 
@@ -36,7 +36,7 @@ RUN dotnet test -c Release --no-build --logger "console;verbosity=detailed"
 # Stage 4 — publish (trimmed, single-file opcional)
 # ──────────────────────────────────────────────────────────────
 FROM build AS publish
-RUN dotnet publish src/PingApi.Api/PingApi.Api.csproj \
+RUN dotnet publish src/RabayHouseLab.PingApi.Api/RabayHouseLab.PingApi.Api.csproj \
     -c Release \
     --no-build \
     -o /app/publish \
@@ -66,4 +66,4 @@ EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD wget -qO- http://127.0.0.1:8080/health || exit 1
 
-ENTRYPOINT ["dotnet", "PingApi.Api.dll"]
+ENTRYPOINT ["dotnet", "RabayHouseLab.PingApi.Api.dll"]

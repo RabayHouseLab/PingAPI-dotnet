@@ -7,7 +7,6 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\PingApi.Api\PingApi.Api.csproj" />
+    <ProjectReference Include="..\..\src\RabayHouseLab.PingApi.Api\RabayHouseLab.PingApi.Api.csproj" />
   </ItemGroup>
 
 </Project>

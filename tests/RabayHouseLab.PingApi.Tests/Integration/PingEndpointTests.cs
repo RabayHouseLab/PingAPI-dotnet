@@ -2,9 +2,9 @@ using System.Net;
 using System.Net.Http.Json;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
-using PingApi.Api.Models;
+using RabayHouseLab.PingApi.Api.Models;
 
-namespace PingApi.Tests.Integration;
+namespace RabayHouseLab.PingApi.Tests.Integration;
 
 public sealed class PingEndpointTests : IClassFixture<WebApplicationFactory<Program>>
 {

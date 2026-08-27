@@ -1,4 +1,4 @@
-namespace PingApi.Api.Models;
+namespace RabayHouseLab.PingApi.Api.Models;
 
 /// <summary>
 /// Representa a resposta padronizada do endpoint de verificação de saúde (ping).

@@ -1,6 +1,12 @@
 using System.Text.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
+using RabayHouseLab.PingApi.Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// EF Core — padrão exigido (InMemory para cenário sem persistência externa; pronto para SqlServer/Npgsql)
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseInMemoryDatabase("PingApiDb"));
 
 // Add services to the container.
 builder.Services.AddControllers()

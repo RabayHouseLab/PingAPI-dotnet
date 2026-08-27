@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using PingApi.Api.Models;
+using RabayHouseLab.PingApi.Api.Models;
 
-namespace PingApi.Api.Controllers;
+namespace RabayHouseLab.PingApi.Api.Controllers;
 
 /// <summary>
 /// Controller responsável por verificar a disponibilidade da API.

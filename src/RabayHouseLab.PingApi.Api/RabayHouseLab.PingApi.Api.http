@@ -1,0 +1,11 @@
+@RabayHouseLab.PingApi.Api_HostAddress = http://localhost:5142
+
+GET {{RabayHouseLab.PingApi.Api_HostAddress}}/ping
+Accept: application/json
+
+###
+
+GET {{RabayHouseLab.PingApi.Api_HostAddress}}/health
+Accept: application/json
+
+###

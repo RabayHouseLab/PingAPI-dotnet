@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/RabayHouseLab.PingApi.Api/RabayHouseLab.PingApi.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/RabayHouseLab.PingApi.Tests/RabayHouseLab.PingApi.Tests.csproj" />
+  </Folder>
+</Solution>

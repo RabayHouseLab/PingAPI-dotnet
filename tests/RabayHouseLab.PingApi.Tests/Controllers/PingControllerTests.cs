@@ -1,10 +1,10 @@
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
-using PingApi.Api.Controllers;
-using PingApi.Api.Models;
+using RabayHouseLab.PingApi.Api.Controllers;
+using RabayHouseLab.PingApi.Api.Models;
 using System.Text.Json;
 
-namespace PingApi.Tests.Controllers;
+namespace RabayHouseLab.PingApi.Tests.Controllers;
 
 public sealed class PingControllerTests
 {
