@@ -7,7 +7,7 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS restore
 WORKDIR /src
 
 # Copia apenas arquivos de projeto para maximizar cache de restore
-COPY PingApi.sln ./
+COPY PingApi.slnx ./
 COPY Directory.Build.props ./
 COPY src/PingApi.Api/PingApi.Api.csproj src/PingApi.Api/
 COPY tests/PingApi.Tests/PingApi.Tests.csproj tests/PingApi.Tests/
