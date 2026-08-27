@@ -1,0 +1,14 @@
+**/.git
+**/.github
+**/.vs
+**/.vscode
+**/.idea
+**/bin
+**/obj
+**/TestResults
+**/coverage
+**/*.md
+**/*.http
+Dockerfile
+.dockerignore
+.gitignore
