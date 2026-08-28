@@ -59,7 +59,12 @@ app.UseCors();
 app.MapControllers();
 app.MapHealthChecks("/health");
 
-app.Run();
+await app.RunAsync();
 
 // Torna Program acessível para WebApplicationFactory nos testes de integração
-public partial class Program { }
+// Composition root — excluído de cobertura (boa prática: sem regra de negócio)
+[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+public partial class Program
+{
+    protected Program() { }
+}

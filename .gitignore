@@ -33,7 +33,8 @@ msbuild.wrn
 *.VisualState.xml
 TestResult.xml
 
-# Coverage
+# Coverage (Coverlet / dotnet-coverage) — nunca versionar saidas locais
+# coverage/**/coverage.opencover.xml e coverage/**/*.trx sao gerados a cada dotnet test
 *.coverage
 *.coveragexml
 coverage*.json
@@ -41,12 +42,31 @@ coverage*.xml
 coverage*.info
 TestCoverageReport/
 lcov.info
+diag.*.log
+coverage/
+coverage.*
+.scannerwork/
+.sonarqube/
 
 # .NET Core
 project.lock.json
 project.fragment.lock.json
 artifacts/
 
+# Secrets / env — nunca versionar
+.env
+.env.*
+*.pem
+*.pfx
+*.key
+*.crt
+secrets/
+secrets.*
+*secret*
+appsettings.Production.json
+appsettings.Staging.json
+appsettings.Local.json
+appsettings.Secrets.json
 # Rider
 .idea/
 

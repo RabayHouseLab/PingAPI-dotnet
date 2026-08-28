@@ -20,7 +20,8 @@ RUN dotnet restore --locked-mode 2> /dev/null || dotnet restore
 FROM restore AS build
 WORKDIR /src
 
-# Copia o restante do código
+# Copia o restante do código (filtrado por .dockerignore — .git, .sonarqube,
+# coverage, artifacts, *.md, .env, *.pem, sonar-project*, etc. já excluídos)
 COPY . .
 
 # Build Release + validação (TreatWarningsAsErrors)

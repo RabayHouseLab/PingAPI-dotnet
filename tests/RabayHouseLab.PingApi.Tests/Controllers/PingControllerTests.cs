@@ -1,4 +1,3 @@
-using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using RabayHouseLab.PingApi.Api.Controllers;
 using RabayHouseLab.PingApi.Api.Models;
@@ -22,31 +21,29 @@ public sealed class PingControllerTests
         // Act
         var result = controller.Get();
 
-        // Assert — ActionResult<PingResponse> encapsula o resultado
-        result.Result.Should().BeOfType<OkObjectResult>();
+        // Assert - ActionResult<PingResponse> encapsula o resultado
+        Assert.IsType<OkObjectResult>(result.Result);
 
-        var okResult = result.Result as OkObjectResult;
-        okResult.Should().NotBeNull();
-        okResult!.StatusCode.Should().Be(200);
+        var okResult = Assert.IsType<OkObjectResult>(result.Result);
+        Assert.Equal(200, okResult.StatusCode);
 
-        var response = okResult.Value as PingResponse;
-        response.Should().NotBeNull();
-        response!.Message.Should().Be("pong");
+        var response = Assert.IsType<PingResponse>(okResult.Value);
+        Assert.Equal("pong", response.Message);
 
-        // Também valida via Value (outra forma de acesso)
-        result.Value.Should().BeNull(); // Quando usa Ok(), Value é null e Result contém o OkObjectResult
+        // Tambem valida via Value (outra forma de acesso)
+        Assert.Null(result.Value); // Quando usa Ok(), Value e null e Result contem o OkObjectResult
     }
 
     [Fact]
     public void PingResponseShouldSerializeToCamelCaseJson()
     {
-        // Arrange — valida contrato JSON esperado: { "message": "pong" }
+        // Arrange - valida contrato JSON esperado: { "message": "pong" }
         var response = new PingResponse("pong");
 
         // Act
         var json = JsonSerializer.Serialize(response, CachedCamelCaseOptions);
 
         // Assert
-        json.Should().Be("""{"message":"pong"}""");
+        Assert.Equal("""{"message":"pong"}""", json);
     }
 }

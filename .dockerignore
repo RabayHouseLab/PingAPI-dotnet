@@ -1,14 +1,52 @@
+# VCS e IDE
 **/.git
 **/.github
 **/.vs
 **/.vscode
 **/.idea
+**/.sonarqube
+**/.scannerwork
+
+# Build / testes / cobertura
 **/bin
 **/obj
+**/artifacts
 **/TestResults
 **/coverage
+**/coverage.*
+**/*.trx
+**/*.coverage
+**/*.coveragexml
+
+# SonarQube / analise
+sonar-project*.properties
+sonar-analyze.ps1
+.sonarqube
+.scannerwork
+
+# Secrets / env (nunca copiar para imagem)
+**/.env
+**/.env.*
+**/*.pem
+**/*.pfx
+**/*.key
+**/*.crt
+**/secrets
+**/secrets.*
+**/*secret*
+
+# AppSettings sensiveis — manter apenas base + Development (necessarios para build)
+# Production/Staging/Local etc. nunca devem ir para contexto (podem conter secrets)
+**/appsettings.Production.json
+**/appsettings.Staging.json
+**/appsettings.Local.json
+**/appsettings.Secrets.json
+**/appsettings.*.Production.json
+**/appsettings.*.Staging.json
+
+# Docs e artefatos de repo (nao necessarios na imagem)
 **/*.md
 **/*.http
-Dockerfile
-.dockerignore
 .gitignore
+.dockerignore
+Dockerfile

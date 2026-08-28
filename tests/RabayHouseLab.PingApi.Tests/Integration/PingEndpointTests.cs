@@ -1,6 +1,5 @@
 using System.Net;
 using System.Net.Http.Json;
-using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using RabayHouseLab.PingApi.Api.Models;
 
@@ -22,14 +21,14 @@ public sealed class PingEndpointTests : IClassFixture<WebApplicationFactory<Prog
         // Act
         var response = await _client.GetAsync(new Uri("/ping", UriKind.Relative));
 
-        // Assert — Status
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
-        response.Content.Headers.ContentType?.MediaType.Should().Be("application/json");
+        // Assert - Status
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.Equal("application/json", response.Content.Headers.ContentType?.MediaType);
 
-        // Assert — Body
+        // Assert - Body
         var body = await response.Content.ReadFromJsonAsync<PingResponse>();
-        body.Should().NotBeNull();
-        body!.Message.Should().Be("pong");
+        Assert.NotNull(body);
+        Assert.Equal("pong", body!.Message);
     }
 
     [Fact]
@@ -39,7 +38,7 @@ public sealed class PingEndpointTests : IClassFixture<WebApplicationFactory<Prog
         var response = await _client.GetAsync(new Uri("/health", UriKind.Relative));
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
 
     [Fact]
@@ -49,6 +48,6 @@ public sealed class PingEndpointTests : IClassFixture<WebApplicationFactory<Prog
         var response = await _client.GetAsync(new Uri("/unknown-route-xyz", UriKind.Relative));
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
 }
